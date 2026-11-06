@@ -1,0 +1,149 @@
+# 04. File and Directory Management
+
+## 1. Introduction
+
+Linux provides commands to create, copy, move, rename and delete files and directories.
+
+## 2. Important Commands
+
+| Command | Purpose |
+|---|---|
+| `touch` | Create an empty file |
+| `mkdir` | Create a directory |
+| `cp` | Copy files |
+| `mv` | Move or rename files |
+| `rm` | Remove files |
+| `rmdir` | Remove empty directories |
+| `file` | Identify file type |
+
+## 3. Command Examples
+
+### touch – Create a File
+
+```bash
+touch file.txt
+```
+
+### mkdir – Create a Directory
+
+```bash
+mkdir documents
+```
+
+Create nested directories:
+
+```bash
+mkdir -p projects/linux/labs
+```
+
+### cp – Copy Files
+
+```bash
+cp file.txt backup.txt
+```
+
+Copy a directory:
+
+```bash
+cp -r documents backup
+```
+
+### mv – Move or Rename Files
+
+Rename a file:
+
+```bash
+mv old.txt new.txt
+```
+
+Move a file:
+
+```bash
+mv file.txt /home/amal/
+```
+
+### rm – Remove Files
+
+```bash
+rm file.txt
+```
+
+Remove a directory and its contents:
+
+```bash
+rm -r documents
+```
+
+**Warning:** `rm -r` permanently removes files and directories. Check the path before executing.
+
+### rmdir – Remove Empty Directory
+
+```bash
+rmdir emptyfolder
+```
+
+### file – Identify File Type
+
+```bash
+file file.txt
+```
+
+## 4. Graphical Representation
+
+```mermaid
+flowchart TD
+    A["File and Directory Management"]
+    A --> B["Create: touch / mkdir"]
+    A --> C["Copy: cp"]
+    A --> D["Move / Rename: mv"]
+    A --> E["Delete: rm / rmdir"]
+    A --> F["Identify: file"]
+```
+
+## 5. Useful Options
+
+| Command | Option | Purpose |
+|---|---|---|
+| `mkdir` | `-p` | Create parent directories |
+| `cp` | `-r` | Copy directories recursively |
+| `cp` | `-i` | Ask before overwriting |
+| `mv` | `-i` | Ask before overwriting |
+| `rm` | `-r` | Remove directories recursively |
+| `rm` | `-i` | Ask before deleting |
+
+## 6. Interview Questions
+
+**Q1. How do you create an empty file?**
+
+`touch filename`
+
+**Q2. How do you create a directory?**
+
+`mkdir directoryname`
+
+**Q3. What is the difference between cp and mv?**
+
+`cp` copies files, whereas `mv` moves or renames files.
+
+**Q4. What is the difference between rm and rmdir?**
+
+`rm` removes files and can remove directories recursively. `rmdir` removes only empty directories.
+
+**Q5. What is the use of mkdir -p?**
+
+Creates parent directories if they do not exist.
+
+**Q6. How do you copy a directory?**
+
+`cp -r source destination`
+
+**Q7. How do you rename a file?**
+
+`mv oldname newname`
+
+## References
+
+- Linux Manual Pages
+- GNU Coreutils Documentation
+
+**Status:** Documentation completed.
