@@ -1,0 +1,109 @@
+# 10. Pipes in Linux (`|`)
+
+## 1. Introduction
+
+A pipe (`|`) sends the output of one command as the input of another command.
+
+It helps combine multiple Linux commands to perform tasks efficiently.
+
+## 2. Basic Syntax
+
+```bash
+command1 | command2
+```
+
+- `command1` produces output.
+- `|` passes the output.
+- `command2` processes that output.
+
+## 3. Graphical Representation
+
+```mermaid
+flowchart LR
+    A["Command 1"] --> B["Pipe (|)"] --> C["Command 2"]
+```
+
+## 4. Practical Examples
+
+### Example 1: View output page by page
+
+```bash
+ls -l | less
+```
+
+### Example 2: Search for a process
+
+```bash
+ps aux | grep sshd
+```
+
+### Example 3: Count files in a directory
+
+```bash
+ls | wc -l
+```
+
+### Example 4: Find a specific user
+
+```bash
+cat /etc/passwd | grep root
+```
+
+### Example 5: Display the first five processes
+
+```bash
+ps aux | head -5
+```
+
+## 5. Using Multiple Pipes
+
+You can connect multiple commands using pipes.
+
+```bash
+cat /etc/passwd | grep bash | wc -l
+```
+
+This command:
+1. Reads `/etc/passwd`.
+2. Finds lines containing `bash`.
+3. Counts the matching lines.
+
+## 6. Pipe vs Redirection
+
+| Pipe (`|`) | Redirection (`>`) |
+|---|---|
+| Sends output to another command | Sends output to a file |
+| Connects commands | Saves command output |
+| Example: `ls \| wc -l` | Example: `ls > output.txt` |
+
+## 7. Important Point
+
+A pipe normally passes standard output (stdout) to the next command.
+
+Standard error (stderr) is not passed through the pipe by default.
+
+## 8. Interview Questions
+
+**Q1. What is a pipe in Linux?**
+
+A pipe sends the output of one command as input to another command.
+
+**Q2. Which symbol is used for a pipe?**
+
+The vertical bar (`|`).
+
+**Q3. How do you count the number of files in a directory?**
+
+```bash
+ls | wc -l
+```
+
+**Q4. Can we use multiple pipes in one command?**
+
+Yes. Multiple pipes can connect several commands.
+
+**Q5. What is the difference between a pipe and redirection?**
+
+A pipe connects commands, whereas redirection sends input or output to a file.
+
+**Status:** Documentation completed.
