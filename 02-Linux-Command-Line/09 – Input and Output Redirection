@@ -1,0 +1,156 @@
+# 09. Linux Input and Output Redirection
+
+## 1. Introduction
+
+Redirection allows Linux users to control where command input and output are sent.
+
+It is commonly used in Linux administration and shell scripting.
+
+## 2. Standard Input, Output and Error
+
+Linux uses three standard streams:
+
+| Stream | File Descriptor | Purpose |
+|---|---|---|
+| stdin | 0 | Standard Input |
+| stdout | 1 | Standard Output |
+| stderr | 2 | Standard Error |
+
+## 3. Graphical Representation
+
+```mermaid
+flowchart TD
+    A["Command"]
+    B["stdin (0)"]
+    C["stdout (1)"]
+    D["stderr (2)"]
+
+    B --> A
+    A --> C
+    A --> D
+```
+
+## 4. Redirection Operators
+
+### `>` – Redirect Output
+
+Writes output to a file. Overwrites existing content.
+
+```bash
+ls > output.txt
+```
+
+### `>>` – Append Output
+
+Adds output to the end of a file.
+
+```bash
+date >> output.txt
+```
+
+### `<` – Redirect Input
+
+Takes input from a file.
+
+```bash
+wc -l < file.txt
+```
+
+### `2>` – Redirect Errors
+
+Sends error messages to a file.
+
+```bash
+ls /wrongpath 2> error.txt
+```
+
+### `2>>` – Append Errors
+
+Appends error messages to a file.
+
+```bash
+ls /wrongpath 2>> error.txt
+```
+
+### `&>` – Redirect Output and Errors
+
+Redirects both standard output and standard error to one file.
+
+```bash
+ls /etc /wrongpath &> result.txt
+```
+
+## 5. Comparison Table
+
+| Operator | Purpose |
+|---|---|
+| `>` | Overwrite output |
+| `>>` | Append output |
+| `<` | Take input from file |
+| `2>` | Redirect errors |
+| `2>>` | Append errors |
+| `&>` | Redirect output and errors |
+
+## 6. Practical Example
+
+Save the current date:
+
+```bash
+date > date.txt
+```
+
+Append system information:
+
+```bash
+uname -r >> date.txt
+```
+
+Redirect errors:
+
+```bash
+cat /wrongfile 2> error.log
+```
+
+View the results:
+
+```bash
+cat date.txt
+cat error.log
+```
+
+## 7. Interview Questions
+
+**Q1. What is redirection in Linux?**
+
+Redirection controls where command input and output are sent.
+
+**Q2. What is stdin?**
+
+Standard input, represented by file descriptor 0.
+
+**Q3. What is stdout?**
+
+Standard output, represented by file descriptor 1.
+
+**Q4. What is stderr?**
+
+Standard error, represented by file descriptor 2.
+
+**Q5. Difference between > and >>?**
+
+`>` overwrites a file, whereas `>>` appends content.
+
+**Q6. How do you redirect error messages?**
+
+Use `2>`.
+
+**Q7. How do you redirect both output and errors?**
+
+Use `&>` in Bash.
+
+## References
+
+- GNU Bash Manual
+- Linux Manual Pages
+
+**Status:** Documentation completed.
