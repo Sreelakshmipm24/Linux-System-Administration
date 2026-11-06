@@ -1,0 +1,175 @@
+# 08. Grep and Text Filtering Commands
+
+## 1. Introduction
+
+Linux provides text-processing commands to search, filter, sort and count information in files.
+
+## 2. Important Commands
+
+| Command | Purpose |
+|---|---|
+| `grep` | Search text in files |
+| `sort` | Sort lines |
+| `uniq` | Remove adjacent duplicate lines |
+| `wc` | Count lines, words and characters |
+| `cut` | Extract specific fields |
+| `tr` | Translate or delete characters |
+
+## 3. grep – Search Text
+
+Search for a word:
+
+```bash
+grep "root" /etc/passwd
+```
+
+Case-insensitive search:
+
+```bash
+grep -i "ROOT" file.txt
+```
+
+Display line numbers:
+
+```bash
+grep -n "error" file.txt
+```
+
+Search recursively:
+
+```bash
+grep -r "error" /var/log/
+```
+
+## 4. sort – Sort Lines
+
+```bash
+sort file.txt
+```
+
+Reverse order:
+
+```bash
+sort -r file.txt
+```
+
+## 5. uniq – Remove Duplicate Lines
+
+```bash
+uniq file.txt
+```
+
+Count adjacent duplicates:
+
+```bash
+uniq -c file.txt
+```
+
+**Note:** `uniq` removes only adjacent duplicate lines. Use `sort` first to group duplicates.
+
+```bash
+sort file.txt | uniq
+```
+
+## 6. wc – Count Information
+
+| Command | Purpose |
+|---|---|
+| `wc -l` | Count lines |
+| `wc -w` | Count words |
+| `wc -c` | Count bytes |
+| `wc -m` | Count characters |
+
+Example:
+
+```bash
+wc -l file.txt
+```
+
+## 7. cut – Extract Fields
+
+Display the first column:
+
+```bash
+cut -d: -f1 /etc/passwd
+```
+
+- `-d:` specifies the delimiter.
+- `-f1` selects the first field.
+
+## 8. tr – Translate Characters
+
+Convert lowercase to uppercase:
+
+```bash
+echo "linux" | tr 'a-z' 'A-Z'
+```
+
+Output:
+
+```text
+LINUX
+```
+
+Delete characters:
+
+```bash
+echo "hello123" | tr -d '0-9'
+```
+
+Output:
+
+```text
+hello
+```
+
+## 9. Graphical Representation
+
+```mermaid
+flowchart TD
+    A["Text File"]
+    A --> B["grep - Search"]
+    A --> C["sort - Sort"]
+    A --> D["uniq - Remove Duplicates"]
+    A --> E["wc - Count"]
+    A --> F["cut - Extract Fields"]
+    A --> G["tr - Translate Characters"]
+```
+
+## 10. Interview Questions
+
+**Q1. What is grep?**
+
+A command used to search for matching text patterns in files.
+
+**Q2. What is the use of grep -i?**
+
+Performs a case-insensitive search.
+
+**Q3. What is the difference between sort and uniq?**
+
+`sort` arranges lines, whereas `uniq` removes adjacent duplicate lines.
+
+**Q4. What is the use of wc -l?**
+
+Counts the number of lines.
+
+**Q5. What is the use of cut?**
+
+Extracts specific fields or characters from text.
+
+**Q6. What is the use of tr?**
+
+Translates or deletes characters.
+
+**Q7. What does grep -r do?**
+
+Searches recursively through directories.
+
+## References
+
+- GNU Grep Documentation
+- GNU Coreutils Documentation
+- Linux Manual Pages
+
+**Status:** Documentation completed.
